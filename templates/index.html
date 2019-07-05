@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Share</th>
+                    <th>Price</th>
+                    <th>TOTAL</th>
+                  <tr>
+                </thead>
+                <tbody id ="tbody">
+                  {% for sym in symsl %}
+                  <tr>
+                    <td>{{sym}}</td>
+                    <td>{{stocks[sym]["name"]}}</td>
+                    <td>{{shares[sym]}}</td>
+                    <td>{{stocks[sym]["price"]}}</td>
+                    <td>{{totals[sym]}}</td>
+                  </tr> 
+                  {% endfor %}
+                  <tr>
+                    <td>CASH</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{cash}}</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id=bold>{{tcash}}</td>
+                  </tr>
+                </tfoot>
+            </table>      
+{% endblock %}
